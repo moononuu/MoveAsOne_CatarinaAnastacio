@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIControl : MonoBehaviour {
+namespace AIControl
+{
+    public class AIControl : MonoBehaviour
+    {
 
-	public GameObject goal;
-	NavMeshAgent agent;
+        GameObject[] goalLocation;
+        NavMeshAgent agent;
 
-	// Use this for initialization
-	void Start () {
+        // Use this for initialization
+        void Start()
+        {
 
-		agent = this.GetComponent<NavMeshAgent>();
-		agent.SetDestination(goal.transform.position);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+            agent = GetComponent<NavMeshAgent>();
+            goalLocation = GameObject.FindGameObjectsWithTag("Goal");
+            int i = Random.Range(0, goalLocation.Length);
+            agent.SetDestination(goalLocation[i].transform.position);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
 }
