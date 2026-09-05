@@ -14,7 +14,6 @@ public class AIControl : MonoBehaviour {
         agent.SetDestination(goal.transform.position);
     }
 
-
     void Update() {
 
     }
